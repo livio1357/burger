@@ -1,7 +1,7 @@
 <h1>Eat the buger</h1>
 
 <h2>How many burgers can you eaten</h2>
-
+<div class="jumbotron">  <img src="http://www.freepngimg.com/download/burger/2-2-burger-free-download-png.png" alt="hamburger" height="25%" width="25%"> </div>
 <ul>
   {{#each burger}}
     {{#unless this.devoured}}
@@ -23,15 +23,17 @@
 <h2>Burgers to be eaten</h2>
 
 <h2>Add a burger</h2>
-<form class="update-form" action="/" method="POST">
-
-  <div class="form-group">
+<form class="update-burger-db" action="/" method="POST">
+<br>
+  <div class="add-burger">
     <label for="bur">Burger:</label>
     <input type="text" id="bur" name="burger_name">
   </div>
-  <button type="submit">Add buger</button>
+  <button class="btn-success" type="submit">Add buger</button>
 </form>
 
- <div class="form-group">
-      <button type="submit" name="devoured" value="1">Eat burger</button>
+
+<br>
+ <div class="eat-burger">
+      <button class="btn-primary" type="submit" name="devoured" value="1">Eat burger</button>
   </div>
