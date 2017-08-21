@@ -40,7 +40,7 @@ router.put("/:id", function(req, res) {
 router.delete("/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
-  cat.delete(condition, function() {
+  burger.delete(condition, function() {
     res.redirect("/");
   });
 });
