@@ -2,7 +2,7 @@ var orm = require("../config/orm.js");
 
 
 
-orm.selectAll("burgers");
+orm.all("burgers");
 
 
 orm.create("pizza man 20.00", 1 , "2017-07-15 00:00:12");
@@ -36,4 +36,4 @@ var burger= {
 };
 
 
-models.export = burger;
+module.export = burger;
