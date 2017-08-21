@@ -8,6 +8,10 @@ var exphbs = require("express-handlebars");
 // =============================================================
 
 var app = express();
+app.use(express.static("public"))
+
+app.use(override('_method'));
+
 var PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing
@@ -17,14 +21,17 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // =============================================================
-//require("./controllers/burgers_controller.js")(app);
+var controller = require("./controllers/burgers_controller.js");
+
+app.use(controller);
+
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set("view engine", "handlebars");
 
-app.get('/', function (req, res) {
-    res.render('index', {});
-});
+//app.get('/', function (req, res) {
+  //  res.render('index', {});
+//});
 
 // Starts the server to begin listening
 // =============================================================

@@ -1,13 +1,15 @@
 var connection = require("./connection.js");
 
 var orm = {
-  selectAll: function(tableInput) {
+  selectAll: function(tableInput, cb) {
     var queryString = "SELECT * FROM ??";
     connection.query(queryString, [tableInput], function(err, result) {
       console.log(result);
+      cb(result);
     });
+    
   },
-  insertOne: function (burger_name, devoured,date) {
+  create: function (burger_name, devoured,date) {
     var queryString = "INSERT INTO `burgers_db`.`burgers` (burger_name , devoured, date) values(??, ?? , ??)";
     console.log(queryString);
     connection.query(queryString, [burger_name,devoured], function(err, result) {
